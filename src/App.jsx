@@ -1,3 +1,5 @@
+import './app.css';
+
 function App() {
 
   // const cardsData = [
@@ -106,8 +108,26 @@ function App() {
   return (
     <>
       <header>
-        <h1>Meus FlashCards de Programação</h1>
+        <h1>Meus FleshCards de programação</h1>
+        <input placeholder='Buscar um conteudo' type="text" />
       </header>
+      <div className='gallery'>
+        <div className='card'>
+            <h2>Javascript</h2>
+            <p>A Melhor linguagem do mundo</p>
+            <a href="#" target='_blank'>Saiba mais</a>
+        </div>
+      </div>
+      <form action="" className='form-container'>
+        <h1>Cadastre um novo conteúdo</h1>
+        <input type="text" placeholder='Titulo'/>
+        <textarea name="" id="" cols="30" rows="10" placeholder='Descrição'></textarea>
+        <input type="text" placeholder='Link'/>
+        <button type='submit'>Criar FleshCard</button>
+      </form>
+      <footer>
+      <p className='read-the-docs'><span>&#9734;</span> Criado por Ana Bezerra</p>
+      </footer>
     </>
   );
 }
