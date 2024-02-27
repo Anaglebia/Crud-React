@@ -166,10 +166,7 @@ _Vai ser incrível compartilhar essa jornada com você! Qualquer dúvida ou suge
 ### Vamos nos conectar!
 
 - [youtube](https://www.youtube.com/queroserdev)
-- [instagram](https://www.instagram.com/simara_conceicao)
-- [linkedin](https://www.linkedin.com/in/simaraconceicao/)
 - [github](https://github.com/simaraconceicao)
-- [spotify](https://open.spotify.com/show/59vCz4TY6tPHXW26qJknh3)
 - [quero ser dev](https://queroserdev.com)
 
 <br>
