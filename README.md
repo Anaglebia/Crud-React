@@ -158,16 +158,16 @@ _Vai ser incrível compartilhar essa jornada com você! Qualquer dúvida ou suge
 
  <img src="https://media.giphy.com/media/efhcZv18NpQDyRsaYa/giphy.gif" alt="Gif Yeah" width="200"> 
 
-# Simara Conceição
-✓	Desenvolvedora na Thoughtworks
+# Ana Bezerra
+✓	Desenvolvedora
 
-✓	Criadora do Quero Ser Dev, projeto que inspira e ajuda pessoas diversas na migração de carreira pra área de tecnologia.
 
 ### Vamos nos conectar!
 
-- [youtube](https://www.youtube.com/queroserdev)
-- [github](https://github.com/simaraconceicao)
-- [quero ser dev](https://queroserdev.com)
+
+- [github](https://github.com/Anaglebia)
+
+
 
 <br>
-Feito com 💜 por Simara Conceição | Quero Ser Dev
+Feito com 💜 por Ana Bezerra | 
