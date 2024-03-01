@@ -156,7 +156,7 @@ return <ul>{elementosDaLista}</ul>;
 -----
 _Vai ser incrível compartilhar essa jornada com você! Qualquer dúvida ou sugestão, chama no contatinho!_
 
- <img src="https://media.giphy.com/media/efhcZv18NpQDyRsaYa/giphy.gif" alt="Gif Yeah" width="200"> 
+ <img src="" alt="Gif Yeah" width="200"> 
 
 # Ana Bezerra
 ✓	Desenvolvedora
