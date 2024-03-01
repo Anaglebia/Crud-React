@@ -1,73 +1,97 @@
-import './app.css';
-import { useState, useEffect } from 'react';
-import Axios from 'axios'; 
-
+import { useState, useEffect } from 'react' //importo o hook
+import './app.css'
+import Axios from 'axios' //importo o axios
 
 function App() {
+  const [cards, setCards] = useState([]) // declaro o estado da lista que a gente vai receber da API
+  const [searchTerm, setSearchTerm] = useState('') //declaro o hook
+  const [titulo, setTitulo] = useState('')// criando estado de titulo
+  const [descricao, setDescricao] = useState('')// criando estado de descricao
+  const [link, setLink] = useState('')// criando estado de link
+  const baseURL = 'https://crud-back-lndz94l4n-anaglebia.vercel.app/' //declaro a url da API
 
-  const [cards, setCards] = useState([])
-  const [searchTerm, setSearchTerm] = useState('');
-  const [title, setTitle] = useState('')
-  const [description, setDescription] = useState('');
-  const [Link, setLink] = useState('');
-  const baseUrl = 'http://localhost:3333/cards'
-  const cardsFlitrados = cards.filter(card=>{
-    return card.title.toLowerCase().includes(searchTerm.toLowerCase())
-
+  const cardsFiltrados = cards.filter(card => {
+    return card.title.toLowerCase().includes(searchTerm.toLowerCase()) //filtrar
   })
-  const handleSubmit = (e)=>{
+
+  const handleSubmit = (e) => { //liga o clique do botão no formulário
     e.preventDefault()
-    async function sendData(){
-      await Axios.post(baseUrl, {
-        title: title,
-        description: description,
-        link: Link
+    
+    async function sendData() { //enviando dados pra minha API
+      await Axios.post(baseURL, {
+        title: titulo,
+        description: descricao,
+        link: link
       })
     }
-    console.log("Dados digitados", (title, description, Link))
-    sendData()
-    setTitle('')
-    setDescription('')
+
+    sendData() //chamando a função de enviar dados
+    setTitulo('')
+    setDescricao('')
     setLink('')
   }
 
-  useEffect(()=>{
-    async function getData(){
-      const response = await Axios.get(baseUrl)
-      setCards(response.data)
+  useEffect(() => {
+    async function getData() {
+      const response = await Axios.get(baseURL) //está pegando os dados da API
+      setCards(response.data) // colocando na tela os dados que vieram da API
     }
     getData()
-  }, [cards])
+  }, [cards]) //estado que modifica mostrando os dados na tela
+
   return (
     <>
       <header>
-        <h1>Meus FleshCards de programação</h1>
-        <input placeholder='Buscar um conteudo...' type="text" value={searchTerm} onChange={(e) => setSearchTerm (e.target.value)} />
+        <h1>Meus FlashCards de Programação</h1>
+        <input 
+          type="text"
+          placeholder="Busque um conteúdo..."
+          value={searchTerm} // valor inicial da busca
+          onChange={(e) => setSearchTerm(e.target.value)} //captura input
+        />
       </header>
-      <div className='gallery'>
-          {
-              cardsFlitrados.map(item=>{
-                return(
-                  <>
-                  <div className='card' key={item.title}>
-                  <h2>{item.title}</h2>
-                  <p>{item.description}</p>
-                  <a href="">{item.link}</a>
-                  </div>
-                  </>
-                )
-              })
-          }
+
+      <div className="gallery">
+        {cardsFiltrados.map(item => { //mapea lista a partir do filtro do estado
+          return (
+            <>
+              <div className="card" key={item.description}>
+                <h2>{item.title}</h2>
+                <p>{item.description}</p>
+                <a href={item.link} target="_blank">
+                  Saiba mais
+                </a>
+              </div>
+            </>
+          )
+        })}
       </div>
-      <form action="" className='form-container'onSubmit={handleSubmit}>
-        <h1>Cadastre um novo conteúdo</h1>
-        <input type="text" placeholder='Titulo' value={title} onChange={(e) => setTitle(e.target.value)}/>
-        <textarea name="" id="" cols="30" rows="10" placeholder='Descrição'value={description} onChange={(e) => setDescription (e.target.value)}></textarea>
-        <input type="text" placeholder='Link'value={Link} onChange={(e) => setLink (e.target.value)}/>
-        <button type='submit'>Criar FleshCard</button>
+
+      <form className="form-container" onSubmit={handleSubmit}>
+        <h1>Cadastre um novo conteúdo:</h1>
+        <input 
+          placeholder="Título:"
+          type="text"
+          value={titulo} //atrelando valor do estado titulo a este elemento
+          onChange={(e) => setTitulo(e.target.value)} //criando o evento de captura de input do titulo
+        />
+        <textarea 
+          placeholder="Descrição:"
+          value={descricao} //atrelando valor do estado descricao a este elemento
+          onChange={(e) => setDescricao(e.target.value)} //criando o evento de captura de input do descricao
+        />
+        <input 
+          placeholder="Link:"
+          type="text"
+          value={link} //atrelando valor do estado link a este elemento
+          onChange={(e) => setLink(e.target.value)} //criando o evento de captura de link do descricao
+        />
+        <button type="submit">Criar FlashCard</button>
       </form>
       <footer>
-      <p className='read-the-docs'><span>&#9734;</span> Criado por Ana Bezerra</p>
+        <p className="read-the-docs">
+          Criado com amor por Simara Conceição - Quero Ser Dev.
+        </p>
       </footer>
     </>
   );
